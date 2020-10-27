@@ -4,23 +4,39 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <typeinfo>
+#include <change_velocity.hpp>
 
 using namespace std;
+using namespace zmqserver;
 
-namespace miron {
-
-Minizinc::Minizinc(const std::string mzn_path, const std::string dzn_path, std::vector<string> varPoints) {
-	solutions=new Solution();
+Minizinc::Minizinc() {
+	solutions = new Solution();
+	mzn_path_ = "";
+	dzn_path_ = "";
+}
+Minizinc::Minizinc(const std::string mzn_path, const std::string dzn_path,
+		std::vector<DataPair> parameters, std::vector<DataPair> varPoints) {
+	solutions = new Solution();
+	solutions->msg = "";
+	solutions->output = { };
+	variant_client_ = std::make_shared<VariantClient>();
+	query_client_ = std::make_shared<QueryClient>();
 	mzn_path_ = mzn_path;
 	dzn_path_ = dzn_path;
+	inputs = parameters;
 	DataPair dp;
 	//Create the buffer
 	for (int i = 0; i < varPoints.size(); ++i) {
-		dp.id=varPoints[i];
-		dp.value="-1";
+		dp.id = varPoints[i].id;
+		dp.value = "-1";
+		dp.type = varPoints[i].type;
 		buffer.push_back(dp);
 	}
-
+	//solutions->output=buffer;
+	for (int i = 0; i < buffer.size(); ++i) {
+		solutions->output.push_back(buffer[i]);
+	}
 
 	FILE *fp;
 	char output[1035];
@@ -52,12 +68,12 @@ Minizinc::Minizinc(const std::string mzn_path, const std::string dzn_path, std::
 Minizinc::~Minizinc() {
 }
 
-bool is_empty(std::ifstream &pFile) {
+bool Minizinc::is_empty(std::ifstream &pFile) {
 	return pFile.good();
 }
 
-void Minizinc::ParseSolution(Solution *outputs) {
-	std::string msg = outputs->msg;
+void Minizinc::ParseSolution() {
+	std::string msg = solutions->msg;
 	size_t pos1 = 0;
 	size_t pos2 = 0;
 	std::string assignment_token;
@@ -66,16 +82,6 @@ void Minizinc::ParseSolution(Solution *outputs) {
 	std::string param_delimiter = "=";
 	DataPair varpoint;
 	vector<DataPair> newSolutions;
-	ofstream solutionsFile;
-	ifstream sFile(
-			"/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/build/solutions.txt");
-	bool existsFile = false;
-	if (is_empty(sFile)) {
-		existsFile = true;
-	}
-	sFile.close();
-	if (!existsFile)
-		solutionsFile.open("solutions.txt");
 
 	//Removes the spaces in the string
 	//msg.erase(remove_if(msg.begin(), msg.end(), isspace), msg.end());
@@ -89,33 +95,51 @@ void Minizinc::ParseSolution(Solution *outputs) {
 			varpoint.value = assignment_token.substr(pos2 + 1,
 					assignment_token.length());
 			//Check previous value
-			//outputs->output.push_back(varpoint);
 			newSolutions.push_back(varpoint);
-			if (!existsFile)
-				solutionsFile << varpoint.id << "=" << varpoint.value << "\n";
+
 			cout << varpoint.id << "=" << varpoint.value << endl;
 		}
 		msg.erase(0, pos1 + assignment_delimiter.length());
 	}
-	if (!existsFile)
-		solutionsFile.close();
 
 	checkSolutions(newSolutions);
 }
-void Minizinc::checkSolutions(vector<DataPair> newSolutions){
-	for (int i= 0; i < solutions->output.size(); ++i) {
-		for (int j = 0; j< newSolutions.size(); ++j) {
-			if(solutions->output[i].id==newSolutions[j].id){
-				if(solutions->output[i].value!=newSolutions[j].value){
-					solutions->output[i].value=newSolutions[j].value;
+void Minizinc::checkSolutions(vector<DataPair> newSolutions) {
+	cout << "!Check solutions" << "Size of old solutions"
+			<< solutions->output.size() << endl;
+	for (int i = 0; i < solutions->output.size(); ++i) {
 
+		for (int j = 0; j < newSolutions.size(); ++j) {
+			cout << "Bucle soluciones antiguas..." << solutions->output[i].id
+					<< " " << newSolutions[j].id << endl;
+			if (solutions->output[i].id == newSolutions[j].id) {
+				cout << "Old Value: " << solutions->output[i].value
+						<< "New Value: " << newSolutions[j].value << endl;
+				/*solutions->output[i].value ="A";
+				 newSolutions[j].value = "B";*/
+
+				if (solutions->output[i].value != newSolutions[j].value) {
+					solutions->output[i].value = newSolutions[j].value;
+					//variant_client_->sendVariant( newSolutions[j].value);
 					//Call ZMQ
+
+					if (solutions->output[i].id == "vp3") {	//Check type of VariantPoint
+						cout << "Change variant and send through ZMQ" << endl;
+						variant_client_->sendVariant(newSolutions[j].value);
+					} else {
+						cout << "Change Parameter " << solutions->output[i].id
+								<< endl;
+						Velocity vel(stoi(solutions->output[i].value), stoi(solutions->output[i].value));
+						ChangeVelocity vel_msg(query_client_->getID(), vel);
+						query_client_->setMsg(std::move(vel_msg.dump()));
+						query_client_->send();
+					}
+
 				}
 			}
 		}
 	}
 }
-
 
 int Minizinc::Run() {
 	return Run(false);
@@ -129,6 +153,7 @@ int Minizinc::Run(bool display_msgs) {
 	std::string solution_str;
 	int result = 0;
 
+	cout << "RUN " << endl;
 	// Getting the parameters as string
 	context_str = "";
 	for (unsigned int i = 0; i < inputs.size(); i++) {
@@ -137,6 +162,7 @@ int Minizinc::Run(bool display_msgs) {
 		context_str.append(inputs[i].value.c_str());
 		context_str.append(";");
 	}
+	cout << "Context str" << context_str << endl;
 
 	// Running minizinc command to execute the optimization
 	if (result == 0) {
@@ -168,7 +194,7 @@ int Minizinc::Run(bool display_msgs) {
 			}
 
 			solutions->msg = solution_str;
-			ParseSolution(solutions);
+			ParseSolution();
 			pclose(fp);
 		}
 	}
@@ -176,10 +202,10 @@ int Minizinc::Run(bool display_msgs) {
 	return result;
 }
 
-void Minizinc::updateParameter(std::string param,std::string value){
+void Minizinc::updateParameter(std::string param, std::string value) {
 	for (int i = 0; i < buffer.size(); ++i) {
-		if(buffer[i].id==param){
-			buffer[i].value=value;
+		if (buffer[i].id == param) {
+			buffer[i].value = value;
 		}
 	}
 }
@@ -189,4 +215,3 @@ string Minizinc::removeSpaces(string str) {
 	return str;
 }
 
-}

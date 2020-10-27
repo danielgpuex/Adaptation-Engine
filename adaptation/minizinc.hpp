@@ -1,8 +1,10 @@
 #include <string>
 #include <vector>
+#include <change_velocity.hpp>
+#include <query_client.hpp>
+#include <variant_client.hpp>
 #ifndef MINZINC_H
 #define MINZINC_H
-namespace miron {
 
 class Minizinc {
 
@@ -12,6 +14,7 @@ typedef struct DataPair
 {
 	std::string id;
 	std::string value;
+	std::string type;
 };
 
 typedef struct Solution
@@ -26,6 +29,9 @@ private:
 	std::vector<DataPair> buffer;
 	std::vector<DataPair> inputs;
 	Solution *solutions;
+
+	std::shared_ptr<QueryClient> query_client_;
+	std::shared_ptr<VariantClient> variant_client_;
 	//std::string json_path_;
 protected:
 
@@ -34,12 +40,12 @@ protected:
      * 
      * @param outputs parsing results
      */
-	void ParseSolution(Solution* outputs);
+	void ParseSolution();
 
 public:
+	Minizinc();
 
-
-	Minizinc(const std::string mzn_path, const std::string dzn_path,const std::vector<std::string> varPoints);
+	Minizinc(const std::string mzn_path, const std::string dzn_path, std::vector<DataPair> parameters, std::vector<DataPair> varPoints);
     
     /**
      * @brief Destroy the Reasoner object
@@ -69,9 +75,10 @@ public:
 
 
 	std::string removeSpaces(std::string str);
+	bool is_empty(std::ifstream &pFile);
 
 };
 
-}
+
 #endif
 

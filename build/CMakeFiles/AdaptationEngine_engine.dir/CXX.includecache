@@ -264,6 +264,12 @@ emmintrin.h
 arm_neon.h
 -
 
+../listener/TopicVar.cc
+TopicVar.h
+../listener/TopicVar.h
+iostream
+-
+
 ../listener/TopicVar.h
 string
 -
@@ -595,8 +601,6 @@ unistd.h
 -
 
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Adaptation-Engine.cpp
-adaptation/minizinc.hpp
-/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/minizinc.hpp
 adaptation/minizinc.cc
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/minizinc.cc
 RoqmeReaderImpl.h
@@ -615,6 +619,10 @@ RoqmeDDSListener.h
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/RoqmeDDSListener.h
 iostream
 -
+fstream
+-
+iostream
+-
 string
 -
 rapidjson/document.h
@@ -625,6 +633,8 @@ rapidjson/stringbuffer.h
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/rapidjson/stringbuffer.h
 TopicVar.h
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/TopicVar.h
+TopicVar.cc
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/TopicVar.cc
 map
 -
 iterator
@@ -643,11 +653,21 @@ vector
 -
 string
 -
+typeinfo
+-
+change_velocity.hpp
+-
 
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/minizinc.hpp
 string
 -
 vector
+-
+change_velocity.hpp
+-
+query_client.hpp
+-
+variant_client.hpp
 -
 
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/listener/listeners_impl.cpp
@@ -669,6 +689,8 @@ variant_client.hpp
 -
 TopicVar.h
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/listener/TopicVar.h
+minizinc.hpp
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/listener/minizinc.hpp
 
 /home/miron/SOFTWARE/smartsoft/OpenSpliceDDS/HDE/x86_64.linux/include/common/include/os_signal.h
 signal.h

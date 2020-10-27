@@ -8,8 +8,8 @@
 #include <query_client.hpp>
 #include <variant_client.hpp>
 #include "TopicVar.h"
-#include "adaptation/minizinc.hpp"
-#include "adaptation/minizinc.cc"
+#include "minizinc.hpp"
+
 using namespace std;
 using namespace Roqme;
 using namespace zmqserver;
@@ -334,13 +334,13 @@ public:
 class EstimateListener: public RoqmeDDSListener<RoqmeDDSTopics::RoqmeEstimate> {
 private:
 	std::vector<TopicVar> buffer;
-	std::shared_ptr<QueryClient> query_client_;
-	std::shared_ptr<VariantClient> variant_client_;
-	miron::Minizinc minizinc;
+
+	Minizinc minizinc;
 public:
-	EstimateListener(vector<TopicVar> properties, miron::Minizinc minizinc) {
+	EstimateListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		RoqmeDDSTopics::RoqmeEstimate estimate;
-		this->minizinc=minizinc;
+		this->buffer = properties;
+		this->minizinc=_minizinc;
 		/*for (int i = 0; i < properties.size(); ++i) {
 			estimate.name_=properties[i];
 			estimate.value_=-1;
@@ -369,13 +369,10 @@ public:
 
 					//Minizinc update parameter and run.
 					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()));
-					minizinc.Run();
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
 
 					//Ejecutar Minizinc, produce salida, si hay actualización manda por zmq los vp que sean.
-					/*Velocity vel(0, data.value());
-					ChangeVelocity vel_msg(query_client_->getID(), vel);
-					query_client_->setMsg(std::move(vel_msg.dump()));
-					query_client_->send();*/
 
 				} else {
 					cout << "Not change" << endl;

@@ -30,6 +30,7 @@ CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o
  ../include/rapidjson/stream.h
  ../include/rapidjson/stringbuffer.h
  ../include/rapidjson/writer.h
+ ../listener/TopicVar.cc
  ../listener/TopicVar.h
  ../listener/json.hpp
  ../listener/query_client.hpp

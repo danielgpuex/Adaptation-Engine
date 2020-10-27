@@ -29,6 +29,7 @@ CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../include/rapid
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../include/rapidjson/stream.h
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../include/rapidjson/stringbuffer.h
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../include/rapidjson/writer.h
+CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../listener/TopicVar.cc
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../listener/TopicVar.h
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../listener/json.hpp
 CMakeFiles/AdaptationEngine_engine.dir/Adaptation-Engine.cpp.o: ../listener/query_client.hpp

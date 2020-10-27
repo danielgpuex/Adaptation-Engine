@@ -1,4 +1,4 @@
-#include "adaptation/minizinc.hpp"
+//#include "minizinc.hpp"
 #include "adaptation/minizinc.cc"
 
 //DDS
@@ -10,7 +10,8 @@
 #include "listener/listeners_impl.cpp"
 #include "RoqmeDDSListener.h"
 //DDS
-
+#include <iostream>
+#include <fstream>
 ////ZMQ
 //
 //#include "zhelpers.hpp"
@@ -29,6 +30,8 @@
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
 #include "TopicVar.h"
+#include "TopicVar.cc"
+
 #include <map>
 #include <iterator>
 using namespace std;
@@ -49,83 +52,85 @@ const string dzn_path_ =
 		"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.dzn";
 const string json_path_ =
 		"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.inputs";
-std::vector<miron::Minizinc::DataPair> buffer;
+//std::vector<Minizinc::DataPair> buffer;
 
 std::map<string, vector<string>> variantsListeners;
 std::vector<Input> inputs;
 
-std::vector<miron::Minizinc::DataPair> minizincParameters;
+std::vector<Minizinc::DataPair> minizincParameters;
 
-std::vector<string> varpoints;
+std::vector<Minizinc::DataPair> varpoints;
+
+//Minizinc minizinc();
 
 /*
  * Check the individual solutions of the minizinc execution
  */
-bool checkDataPair(miron::Minizinc::DataPair dataPair) {
-	bool exists = false;
-	bool change = false;
-	std::vector<miron::Minizinc::DataPair> aux;
+/*bool checkDataPair(Minizinc::DataPair dataPair) {
+ bool exists = false;
+ bool change = false;
+ std::vector<Minizinc::DataPair> aux;
 
-	for (miron::Minizinc::DataPair val : buffer) {
-		if (val.id == dataPair.id) {
-			exists = true;
-			if (val.value != dataPair.value) {
-				cout << "Differents values, update in the buffer" << endl;
-				cout << "Send to Skill Server using ZMQ" << endl;
-				change = true;
-			} else {
-				cout << "Not change" << endl;
-			}
-		}
-		if (change) {
-			aux.push_back(dataPair);
-			change = false;
-		} else {
-			aux.push_back(val);
-		}
-	}
-	buffer = aux;
-	return change;
-}
+ for (Minizinc::DataPair val : buffer) {
+ if (val.id == dataPair.id) {
+ exists = true;
+ if (val.value != dataPair.value) {
+ cout << "Differents values, update in the buffer" << endl;
+ cout << "Send to Skill Server using ZMQ" << endl;
+ change = true;
+ } else {
+ cout << "Not change" << endl;
+ }
+ }
+ if (change) {
+ aux.push_back(dataPair);
+ change = false;
+ } else {
+ aux.push_back(val);
+ }
+ }
+ buffer = aux;
+ return change;
+ }*/
 /*
  * Check the solutions before send data using ZMQ
  *
  * @param outputs
  */
-void checkSolutions(miron::Minizinc::Solution *solutions) {
-	cout << "Solutions: " << solutions->output[1].id << "="
-			<< solutions->output[1].value << endl;
-	std::string delimiter = "=";
-	string line, name, value;
-	ifstream myfile("solutions.txt");
-	miron::Minizinc::DataPair dp;
-	buffer.clear();
-	if (myfile.is_open()) {
-		while (getline(myfile, line)) {
-			name = line.substr(0, line.find(delimiter));
-			value = line.substr(line.find(delimiter) + 1, line.length());
-			cout << "Name " << name << " Value " << value << endl;
-			dp.id = name;
-			dp.value = value;
-			buffer.push_back(dp);
-		}
-		myfile.close();
-	} else
-		cout << "Unable to open file";
+/*void checkSolutions(Minizinc::Solution *solutions) {
+ cout << "Solutions: " << solutions->output[1].id << "="
+ << solutions->output[1].value << endl;
+ std::string delimiter = "=";
+ string line, name, value;
+ ifstream myfile("solutions.txt");
+ Minizinc::DataPair dp;
+ buffer.clear();
+ if (myfile.is_open()) {
+ while (getline(myfile, line)) {
+ name = line.substr(0, line.find(delimiter));
+ value = line.substr(line.find(delimiter) + 1, line.length());
+ cout << "Name " << name << " Value " << value << endl;
+ dp.id = name;
+ dp.value = value;
+ buffer.push_back(dp);
+ }
+ myfile.close();
+ } else
+ cout << "Unable to open file";
 
-	for (miron::Minizinc::DataPair dataPair : solutions->output) {
-		checkDataPair(dataPair);
-	}
+ for (Minizinc::DataPair dataPair : solutions->output) {
+ checkDataPair(dataPair);
+ }
 
-	//build the new solutions file
-	ofstream solutionsFile;
-	solutionsFile.open("solutions.txt");
-	for (miron::Minizinc::DataPair val : buffer) {
-		solutionsFile << val.id << "=" << val.value << "\n";
-	}
-	solutionsFile.close();
+ //build the new solutions file
+ ofstream solutionsFile;
+ solutionsFile.open("solutions.txt");
+ for (Minizinc::DataPair val : buffer) {
+ solutionsFile << val.id << "=" << val.value << "\n";
+ }
+ solutionsFile.close();
 
-}
+ }*/
 string readInputFile() {
 	string jsonFile = "";
 	string line;
@@ -170,72 +175,120 @@ void loadFromJSONInputs() {
 	assert(s.IsArray());
 
 	for (auto &v : s.GetArray()) {
-		//existsInsertMap(v["type"].GetString(), v["name"].GetString());
 		input.id = v["id"].GetString();
 		input.name = v["name"].GetString();
 		input.type = v["type"].GetString();
 		input.namesp = v["namespace"].GetString();
 		inputs.push_back(input);
-		//insert to input vector
 	}
-	/*cout << variantsListeners["Property"][0] << endl;
-	 std::map<std::string, vector<string>>::iterator it = variantsListeners.begin();
-	 // Iterate over the map using Iterator till end.
-	 while (it != variantsListeners.end())
-	 {
-	 // Accessing KEY from element pointed by it.
-	 std::string word = it->first;
-	 // Accessing VALUE from element pointed by it.
-	 vector<string> count = it->second;
-	 std::cout << word << " :: " << count.size() << std::endl;
-	 // Increment the Iterator to point to next entry
-	 it++;
-	 }*/
 
 }
-void initListeners() {
+constexpr unsigned int str2int(const char *str, int h = 0) {
+	return !str[h] ? 5381 : (str2int(str, h + 1) * 33) ^ str[h];
+}
+void initListeners(Minizinc minizinc) {
+	vector<TopicVar> props;
+	vector<TopicVar> doubles;
+	vector<TopicVar> ints;
+	vector<TopicVar> bools;
+	vector<TopicVar> enums;
+	TopicVar vp;
 	for (int i = 0; i < inputs.size(); ++i) {
+		if (inputs[i].type == "Property") {
+			vp = TopicVar(inputs[i].name, "-1", inputs[i].id);
+			props.push_back(vp);
+		}
 
 	}
-	/*if (variantsListeners.count("Property") > 0) { //One if for each DDS Listener
-	 RoqmeEstimateReader estimateReader(
-	 new EstimateListener(variantsListeners["Property"]));
-	 }
+	if (props.size() > 0) {
+		RoqmeEstimateReader estimateReader(
+				new EstimateListener(props, minizinc));
 
-	 if (variantsListeners.count("Context") > 0) {
-	 if (variantsListeners.count("Enum") > 0) { //One if for each DDS Context Listener
-	 //TODO
-	 }
-	 }*/
+		//Test Publisher
+		Roqme::RoqmeDDSManager roqmeManager;
+
+		roqmeManager.createEstimateWriter();
+		roqmeManager.createEventContextWriter();
+
+		RoqmeDDSTopics::RoqmeEstimate int_data;
+		RoqmeDDSTopics::RoqmeEventContext event_data;
+
+		int_data.name("Performance");
+		int_data.value() = { 1 };
+		roqmeManager.write(int_data);
+
+		int_data.name("Performance");
+		int_data.value() = { 2 };
+		roqmeManager.write(int_data);
+
+		int_data.name("Performance");
+		int_data.value() = { 3 };
+		roqmeManager.write(int_data);
+
+		int_data.name("Performance");
+		int_data.value() = { 3 };
+		roqmeManager.write(int_data);
+		cout << "Pulsa para terminar ..." << endl;
+		std::cin.get();
+		estimateReader.close();
+	}
 
 }
 
-void loadMinizincParameters() {
-	vector<string> params;
-	miron::Minizinc::DataPair dp;
-	if (variantsListeners.count("boolean") > 0) { //One if for each DDS Listener
-		params = variantsListeners["boolean"];
-		for (int i = 0; i < params.size(); ++i) {
-			dp.id = params[i];
-			dp.value = "false";
-			minizincParameters.push_back(dp);
-		}
-	}
-	if (variantsListeners.count("VariationPoint") > 0) { //One if for each DDS Listener
-		params = variantsListeners["VariationPoint"];
-		for (int i = 0; i < params.size(); ++i) {
-			dp.id = params[i];
+/*void loadMinizincParameters() {
+ vector<string> params;
+ miron::Minizinc::DataPair dp;
+ if (variantsListeners.count("boolean") > 0) { //One if for each DDS Listener
+ params = variantsListeners["boolean"];
+ for (int i = 0; i < params.size(); ++i) {
+ dp.id = params[i];
+ dp.value = "false";
+ minizincParameters.push_back(dp);
+ }
+ }
+ if (variantsListeners.count("VariationPoint") > 0) { //One if for each DDS Listener
+ params = variantsListeners["VariationPoint"];
+ for (int i = 0; i < params.size(); ++i) {
+ dp.id = params[i];
+ dp.value = "0";
+ minizincParameters.push_back(dp);
+ }
+ }
+ }*/
+void loadMinizinc() {
+	//vector<string> vars;
+	Minizinc::DataPair dp;
+
+	for (int i = 0; i < inputs.size(); ++i) {
+		if (inputs[i].type == "VariationPoint" ||inputs[i].type == "Property") { //For vp1, vp2 ... (name into inputs file) and execution parameters
+			//varpoints.push_back(inputs[i].name);
+			dp.id = inputs[i].id;
 			dp.value = "0";
+			dp.type=inputs[i].type;
+			minizincParameters.push_back(dp);
+
+			dp.id = inputs[i].name;
+			dp.value = "0";
+			dp.type=inputs[i].type;
+			varpoints.push_back(dp);
+		}
+		if (inputs[i].type == "boolean" ) { //For vp1_input ... (name into inputs file) and execution parameters
+			dp.id = inputs[i].id;
+			dp.value = "false";
+			dp.type=inputs[i].type;
 			minizincParameters.push_back(dp);
 		}
+
 	}
+	Minizinc minizinc(mzn_path_, dzn_path_, minizincParameters, varpoints);
+	initListeners(minizinc);
+
 }
 int main(int argc, char *argv[]) {
 	loadFromJSONInputs();
-	initListeners();
-	miron::Minizinc minizinc(mzn_path_, dzn_path_,
-			variantsListeners["VariationPoint"]);
-	miron::Minizinc::Solution *solution = new miron::Minizinc::Solution();
+	loadMinizinc();
+
+	//miron::Minizinc::Solution *solution = new miron::Minizinc::Solution();
 	//Start DDS Readers
 	/*try {
 	 RoqmeIntReader intReader(new IntContextListener);
