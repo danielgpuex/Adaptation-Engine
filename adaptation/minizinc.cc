@@ -105,23 +105,15 @@ void Minizinc::ParseSolution() {
 	checkSolutions(newSolutions);
 }
 void Minizinc::checkSolutions(vector<DataPair> newSolutions) {
-	cout << "!Check solutions" << "Size of old solutions"
-			<< solutions->output.size() << endl;
-	for (int i = 0; i < solutions->output.size(); ++i) {
 
+	for (int i = 0; i < solutions->output.size(); ++i) {
 		for (int j = 0; j < newSolutions.size(); ++j) {
-			cout << "Bucle soluciones antiguas..." << solutions->output[i].id
-					<< " " << newSolutions[j].id << endl;
 			if (solutions->output[i].id == newSolutions[j].id) {
 				cout << "Old Value: " << solutions->output[i].value
 						<< "New Value: " << newSolutions[j].value << endl;
-				/*solutions->output[i].value ="A";
-				 newSolutions[j].value = "B";*/
 
 				if (solutions->output[i].value != newSolutions[j].value) {
 					solutions->output[i].value = newSolutions[j].value;
-					//variant_client_->sendVariant( newSolutions[j].value);
-					//Call ZMQ
 
 					if (solutions->output[i].id == "vp3") {	//Check type of VariantPoint
 						cout << "Change variant and send through ZMQ" << endl;
@@ -129,7 +121,8 @@ void Minizinc::checkSolutions(vector<DataPair> newSolutions) {
 					} else {
 						cout << "Change Parameter " << solutions->output[i].id
 								<< endl;
-						Velocity vel(stoi(solutions->output[i].value), stoi(solutions->output[i].value));
+						Velocity vel(stoi(solutions->output[i].value),
+								stoi(solutions->output[i].value));
 						ChangeVelocity vel_msg(query_client_->getID(), vel);
 						query_client_->setMsg(std::move(vel_msg.dump()));
 						query_client_->send();

@@ -23,131 +23,152 @@ void printTimestamp(const dds::core::Time &source_timestamp) {
 class IntContextListener: public RoqmeDDSListener<
 		RoqmeDDSTopics::RoqmeIntContext> {
 private:
-	std::list<RoqmeDDSTopics::RoqmeIntContext> buffer;
-
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
 public:
+
+	IntContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeIntContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeIntContext> aux;
+		std::vector<TopicVar> aux;
 		bool exists = false;
 		bool change = false;
-
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
-
-		for (RoqmeDDSTopics::RoqmeIntContext val : buffer) {
-			if (val.name() == data.name()) {
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
 				exists = true;
-				if (val.value() != data.value()) {
+				if (stoi(val.getValue()) != data.value()[0]) {
 					cout << "Differents values, update in the buffer" << endl;
 					cout << "Send to Skill Server using ZMQ" << endl;
-
 					change = true;
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(to_string(data.value()[0]));
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
+
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
+
 				} else {
 					cout << "Not change" << endl;
 				}
 			}
 			if (change) {
-				aux.push_back(data);
 				change = false;
 			} else {
 				aux.push_back(val);
 			}
 		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
-		}
 		exists = false;
 		buffer = aux;
+
 	}
 };
 
 class UIntContextListener: public RoqmeDDSListener<
 		RoqmeDDSTopics::RoqmeUIntContext> {
 private:
-	std::list<RoqmeDDSTopics::RoqmeUIntContext> buffer;
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
+
 public:
+
+	UIntContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
+
 	void dataAvailable(const RoqmeDDSTopics::RoqmeUIntContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeUIntContext> aux;
+		std::vector<TopicVar> aux;
 		bool exists = false;
 		bool change = false;
-
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
-
-		for (RoqmeDDSTopics::RoqmeUIntContext val : buffer) {
-			if (val.name() == data.name()) {
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
 				exists = true;
-				if (val.value() != data.value()) {
+				if (stoi(val.getValue()) != data.value()[0]) {
 					cout << "Differents values, update in the buffer" << endl;
 					cout << "Send to Skill Server using ZMQ" << endl;
 					change = true;
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(to_string(data.value()[0]));
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
+
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
+
 				} else {
 					cout << "Not change" << endl;
 				}
 			}
 			if (change) {
-				aux.push_back(data);
 				change = false;
 			} else {
 				aux.push_back(val);
 			}
 		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
-		}
 		exists = false;
 		buffer = aux;
+
 	}
 };
 
 class BoolContextListener: public RoqmeDDSListener<
 		RoqmeDDSTopics::RoqmeBoolContext> {
 private:
-	std::list<RoqmeDDSTopics::RoqmeBoolContext> buffer;
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
+
 public:
+	BoolContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeBoolContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeBoolContext> aux;
+		std::vector<TopicVar> aux;
 		bool exists = false;
 		bool change = false;
-
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
-
-		for (RoqmeDDSTopics::RoqmeBoolContext val : buffer) {
-			if (val.name() == data.name()) {
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
 				exists = true;
-				if (val.value() != data.value()) {
+
+				if (stoi(val.getValue()) != data.value()[0]) {
 					cout << "Differents values, update in the buffer" << endl;
 					cout << "Send to Skill Server using ZMQ" << endl;
 					change = true;
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(to_string(data.value()[0]));
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
+
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
+
 				} else {
 					cout << "Not change" << endl;
 				}
 			}
 			if (change) {
-				aux.push_back(data);
 				change = false;
 			} else {
 				aux.push_back(val);
 			}
-		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
 		}
 		exists = false;
 		buffer = aux;
@@ -157,41 +178,46 @@ public:
 class EnumContextListener: public RoqmeDDSListener<
 		RoqmeDDSTopics::RoqmeEnumContext> {
 private:
-	std::list<RoqmeDDSTopics::RoqmeEnumContext> buffer;
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
+
 public:
+	EnumContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeEnumContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
-		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeEnumContext> aux;
+		std::vector<TopicVar> aux;
 		bool exists = false;
 		bool change = false;
-
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
-
-		for (RoqmeDDSTopics::RoqmeEnumContext val : buffer) {
-			if (val.name() == data.name()) {
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
 				exists = true;
-				if (val.value() != data.value()) {
+				if (stoi(val.getValue()) != stoi(data.value()[0])) {
 					cout << "Differents values, update in the buffer" << endl;
 					cout << "Send to Skill Server using ZMQ" << endl;
 					change = true;
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(data.value()[0]);
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
+
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(), data.value()[0]);
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
+
 				} else {
 					cout << "Not change" << endl;
 				}
 			}
 			if (change) {
-				aux.push_back(data);
 				change = false;
 			} else {
 				aux.push_back(val);
 			}
-		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
 		}
 		exists = false;
 		buffer = aux;
@@ -225,44 +251,46 @@ public:
 };
 
 class EventContextListener: public RoqmeDDSListener<
-		RoqmeDDSTopics::RoqmeEventContext> {
+		RoqmeDDSTopics::RoqmeEventContext> {//TODO: No me convence. Revisar
 private:
-	std::list<RoqmeDDSTopics::RoqmeEventContext> buffer;
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
 public:
+	EventContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
 
 	void dataAvailable(const RoqmeDDSTopics::RoqmeEventContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeEventContext> aux;
+		std::vector<TopicVar> aux;
 		bool exists = false;
 		bool change = false;
-
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
-
-		for (RoqmeDDSTopics::RoqmeEventContext val : buffer) {
-			if (val.name() == data.name()) {
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
 				exists = true;
-				if (val.value() != data.value()) {
+
 					cout << "Differents values, update in the buffer" << endl;
 					cout << "Send to Skill Server using ZMQ" << endl;
 					change = true;
-				} else {
-					cout << "Not change" << endl;
-				}
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(to_string(sampleInfo.timestamp().sec()));
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
+
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(), "true");//TODO: When minizinc is executed will change a 'false' value in his buffer.
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
+
 			}
 			if (change) {
-				aux.push_back(data);
 				change = false;
 			} else {
 				aux.push_back(val);
 			}
-		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
 		}
 		exists = false;
 		buffer = aux;
@@ -272,8 +300,14 @@ public:
 class DoubleContextListener: public RoqmeDDSListener<
 		RoqmeDDSTopics::RoqmeDoubleContext> {
 private:
-	std::list<RoqmeDDSTopics::RoqmeDoubleContext> buffer;
+	std::vector<TopicVar> buffer;
+	Minizinc minizinc;
+	//std::list<RoqmeDDSTopics::RoqmeDoubleContext> buffer;
 public:
+	DoubleContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
+		this->buffer = properties;
+		this->minizinc=_minizinc;
+	}
 
 	void dataAvailable(
 			dds::sub::DataReader<RoqmeDDSTopics::RoqmeDoubleContext> &dr) {
@@ -290,55 +324,49 @@ public:
 	void dataAvailable(const RoqmeDDSTopics::RoqmeDoubleContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-		std::list<RoqmeDDSTopics::RoqmeDoubleContext> aux;
-		bool exists = false;
-		bool change = false;
+				std::vector<TopicVar> aux;
+				bool exists = false;
+				bool change = false;
+				TopicVar nVar;
+				for (TopicVar val : buffer) {
+					if (val.getTopic() == data.name()) {
+						exists = true;
+						if (stoi(val.getValue()) != data.value()[0]) {
+							cout << "Differents values, update in the buffer" << endl;
+							cout << "Send to Skill Server using ZMQ" << endl;
+							change = true;
+							nVar.setTopic(val.getTopic());
+							nVar.setValue(to_string(data.value()[0]));
+							nVar.setMinizincParam(val.getMinizincParam());
+							aux.push_back(nVar);
 
-		for (auto elem : data.value()) {
-			cout << "\t " << elem << endl;
-		}
+							//Minizinc update parameter and run.
+							minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+							cout << "Ejecutamos el minizinc..." << endl;
+							minizinc.Run(true);
 
-		for (RoqmeDDSTopics::RoqmeDoubleContext val : buffer) {
-			if (val.name() == data.name()) {
-				exists = true;
-				if (val.value() != data.value()) {
-					cout << "Differents values, update in the buffer" << endl;
-					cout << "Send to Skill Server using ZMQ" << endl;
-					change = true;
-				} else {
-					cout << "Not change" << endl;
+						} else {
+							cout << "Not change" << endl;
+						}
+					}
+					if (change) {
+						change = false;
+					} else {
+						aux.push_back(val);
+					}
 				}
-			}
-			if (change) {
-				aux.push_back(data);
-				change = false;
-			} else {
-				aux.push_back(val);
-			}
-		}
-		if (!exists) {
-			cout << "Store inside of the list" << endl;
-			cout << "Send to Skill Server using ZMQ" << endl;
-			aux.push_back(data);
-		}
-		exists = false;
-		buffer = aux;
-		for (RoqmeDDSTopics::RoqmeDoubleContext val : buffer) {
-			for (auto elem : val.value()) {
-				cout << "\t value: " << elem << endl;
-			}
-		}
+				exists = false;
+				buffer = aux;
+
 	}
 };
 
 class EstimateListener: public RoqmeDDSListener<RoqmeDDSTopics::RoqmeEstimate> {
 private:
 	std::vector<TopicVar> buffer;
-
 	Minizinc minizinc;
 public:
 	EstimateListener(vector<TopicVar> properties, Minizinc _minizinc) {
-		RoqmeDDSTopics::RoqmeEstimate estimate;
 		this->buffer = properties;
 		this->minizinc=_minizinc;
 		/*for (int i = 0; i < properties.size(); ++i) {
@@ -372,8 +400,6 @@ public:
 					cout << "Ejecutamos el minizinc..." << endl;
 					minizinc.Run(true);
 
-					//Ejecutar Minizinc, produce salida, si hay actualización manda por zmq los vp que sean.
-
 				} else {
 					cout << "Not change" << endl;
 				}
@@ -384,9 +410,6 @@ public:
 				aux.push_back(val);
 			}
 		}
-		/*if (!exists) {
-
-		}*/
 		exists = false;
 		buffer = aux;
 	}

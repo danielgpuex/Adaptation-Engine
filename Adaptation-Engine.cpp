@@ -203,6 +203,14 @@ void initListeners(Minizinc minizinc) {
 	if (props.size() > 0) {
 		RoqmeEstimateReader estimateReader(
 				new EstimateListener(props, minizinc));
+		RoqmeIntReader intReader(new IntContextListener(props, minizinc));
+		RoqmeUIntReader uintReader(new UIntContextListener(props, minizinc));
+		RoqmeDoubleReader doubleReader(
+				new DoubleContextListener(props, minizinc));
+		RoqmeBoolReader boolReader(new BoolContextListener(props, minizinc));
+		RoqmeEnumReader enumReader(new EnumContextListener(props, minizinc));
+		RoqmeEventReader eventReader(new EventContextListener(props, minizinc));
+		RoqmeObservationReader observationReader(new ObservationListener);
 
 		//Test Publisher
 		Roqme::RoqmeDDSManager roqmeManager;
@@ -260,22 +268,23 @@ void loadMinizinc() {
 	Minizinc::DataPair dp;
 
 	for (int i = 0; i < inputs.size(); ++i) {
-		if (inputs[i].type == "VariationPoint" ||inputs[i].type == "Property") { //For vp1, vp2 ... (name into inputs file) and execution parameters
-			//varpoints.push_back(inputs[i].name);
+		if (inputs[i].type == "VariationPoint"
+				|| inputs[i].type == "Property") { //For vp1, vp2 ... (name into inputs file) and execution parameters
+				//varpoints.push_back(inputs[i].name);
 			dp.id = inputs[i].id;
 			dp.value = "0";
-			dp.type=inputs[i].type;
+			dp.type = inputs[i].type;
 			minizincParameters.push_back(dp);
 
 			dp.id = inputs[i].name;
 			dp.value = "0";
-			dp.type=inputs[i].type;
+			dp.type = inputs[i].type;
 			varpoints.push_back(dp);
 		}
-		if (inputs[i].type == "boolean" ) { //For vp1_input ... (name into inputs file) and execution parameters
+		if (inputs[i].type == "boolean") { //For vp1_input ... (name into inputs file) and execution parameters
 			dp.id = inputs[i].id;
 			dp.value = "false";
-			dp.type=inputs[i].type;
+			dp.type = inputs[i].type;
 			minizincParameters.push_back(dp);
 		}
 
