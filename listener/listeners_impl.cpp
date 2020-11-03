@@ -14,7 +14,6 @@ using namespace std;
 using namespace Roqme;
 using namespace zmqserver;
 
-
 void printTimestamp(const dds::core::Time &source_timestamp) {
 	cout << "\t timestamp: " << source_timestamp.sec() << "s, "
 			<< source_timestamp.nanosec() << "ns" << endl;
@@ -29,7 +28,7 @@ public:
 
 	IntContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeIntContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
@@ -51,7 +50,8 @@ public:
 					aux.push_back(nVar);
 
 					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					minizinc.updateParameter(val.getMinizincParam(),
+							to_string(data.value()[0]));
 					cout << "Ejecutamos el minizinc..." << endl;
 					minizinc.Run(true);
 
@@ -81,7 +81,7 @@ public:
 
 	UIntContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 
 	void dataAvailable(const RoqmeDDSTopics::RoqmeUIntContext &data,
@@ -104,7 +104,8 @@ public:
 					aux.push_back(nVar);
 
 					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					minizinc.updateParameter(val.getMinizincParam(),
+							to_string(data.value()[0]));
 					cout << "Ejecutamos el minizinc..." << endl;
 					minizinc.Run(true);
 
@@ -133,7 +134,7 @@ private:
 public:
 	BoolContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeBoolContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
@@ -156,7 +157,8 @@ public:
 					aux.push_back(nVar);
 
 					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
+					minizinc.updateParameter(val.getMinizincParam(),
+							to_string(data.value()[0]));
 					cout << "Ejecutamos el minizinc..." << endl;
 					minizinc.Run(true);
 
@@ -184,7 +186,7 @@ private:
 public:
 	EnumContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 	void dataAvailable(const RoqmeDDSTopics::RoqmeEnumContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
@@ -205,7 +207,8 @@ public:
 					aux.push_back(nVar);
 
 					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), data.value()[0]);
+					minizinc.updateParameter(val.getMinizincParam(),
+							data.value()[0]);
 					cout << "Ejecutamos el minizinc..." << endl;
 					minizinc.Run(true);
 
@@ -251,14 +254,14 @@ public:
 };
 
 class EventContextListener: public RoqmeDDSListener<
-		RoqmeDDSTopics::RoqmeEventContext> {//TODO: No me convence. Revisar
+		RoqmeDDSTopics::RoqmeEventContext> { //TODO: No me convence. Revisar
 private:
 	std::vector<TopicVar> buffer;
 	Minizinc minizinc;
 public:
 	EventContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 
 	void dataAvailable(const RoqmeDDSTopics::RoqmeEventContext &data,
@@ -272,18 +275,19 @@ public:
 			if (val.getTopic() == data.name()) {
 				exists = true;
 
-					cout << "Differents values, update in the buffer" << endl;
-					cout << "Send to Skill Server using ZMQ" << endl;
-					change = true;
-					nVar.setTopic(val.getTopic());
-					nVar.setValue(to_string(sampleInfo.timestamp().sec()));
-					nVar.setMinizincParam(val.getMinizincParam());
-					aux.push_back(nVar);
+				cout << "Differents values, update in the buffer" << endl;
+				cout << "Send to Skill Server using ZMQ" << endl;
+				change = true;
+				nVar.setTopic(val.getTopic());
+				nVar.setValue(to_string(sampleInfo.timestamp().sec()));
+				nVar.setMinizincParam(val.getMinizincParam());
+				aux.push_back(nVar);
 
-					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), "true");//TODO: When minizinc is executed will change a 'false' value in his buffer.
-					cout << "Ejecutamos el minizinc..." << endl;
-					minizinc.Run(true);
+				//Minizinc update parameter and run.
+				minizinc.updateParameter(val.getMinizincParam(), "true"); //TODO: When minizinc is executed will change a 'false' value in his buffer.
+				cout << "Ejecutamos el minizinc..." << endl;
+				minizinc.Run(true);
+				minizinc.updateParameter(val.getMinizincParam(), "false");
 
 			}
 			if (change) {
@@ -306,7 +310,7 @@ private:
 public:
 	DoubleContextListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 	}
 
 	void dataAvailable(
@@ -324,39 +328,40 @@ public:
 	void dataAvailable(const RoqmeDDSTopics::RoqmeDoubleContext &data,
 			const dds::sub::SampleInfo &sampleInfo) {
 		cout << "\t name: " << data.name() << endl;
-				std::vector<TopicVar> aux;
-				bool exists = false;
-				bool change = false;
-				TopicVar nVar;
-				for (TopicVar val : buffer) {
-					if (val.getTopic() == data.name()) {
-						exists = true;
-						if (stoi(val.getValue()) != data.value()[0]) {
-							cout << "Differents values, update in the buffer" << endl;
-							cout << "Send to Skill Server using ZMQ" << endl;
-							change = true;
-							nVar.setTopic(val.getTopic());
-							nVar.setValue(to_string(data.value()[0]));
-							nVar.setMinizincParam(val.getMinizincParam());
-							aux.push_back(nVar);
+		std::vector<TopicVar> aux;
+		bool exists = false;
+		bool change = false;
+		TopicVar nVar;
+		for (TopicVar val : buffer) {
+			if (val.getTopic() == data.name()) {
+				exists = true;
+				if (stoi(val.getValue()) != data.value()[0]) {
+					cout << "Differents values, update in the buffer" << endl;
+					cout << "Send to Skill Server using ZMQ" << endl;
+					change = true;
+					nVar.setTopic(val.getTopic());
+					nVar.setValue(to_string(data.value()[0]));
+					nVar.setMinizincParam(val.getMinizincParam());
+					aux.push_back(nVar);
 
-							//Minizinc update parameter and run.
-							minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()[0]));
-							cout << "Ejecutamos el minizinc..." << endl;
-							minizinc.Run(true);
+					//Minizinc update parameter and run.
+					minizinc.updateParameter(val.getMinizincParam(),
+							to_string(data.value()[0]));
+					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.Run(true);
 
-						} else {
-							cout << "Not change" << endl;
-						}
-					}
-					if (change) {
-						change = false;
-					} else {
-						aux.push_back(val);
-					}
+				} else {
+					cout << "Not change" << endl;
 				}
-				exists = false;
-				buffer = aux;
+			}
+			if (change) {
+				change = false;
+			} else {
+				aux.push_back(val);
+			}
+		}
+		exists = false;
+		buffer = aux;
 
 	}
 };
@@ -368,12 +373,12 @@ private:
 public:
 	EstimateListener(vector<TopicVar> properties, Minizinc _minizinc) {
 		this->buffer = properties;
-		this->minizinc=_minizinc;
+		this->minizinc = _minizinc;
 		/*for (int i = 0; i < properties.size(); ++i) {
-			estimate.name_=properties[i];
-			estimate.value_=-1;
-			buffer.push_back(estimate);
-		}*/
+		 estimate.name_=properties[i];
+		 estimate.value_=-1;
+		 buffer.push_back(estimate);
+		 }*/
 	}
 
 	void dataAvailable(const RoqmeDDSTopics::RoqmeEstimate &data,
@@ -396,8 +401,9 @@ public:
 					aux.push_back(nVar);
 
 					//Minizinc update parameter and run.
-					minizinc.updateParameter(val.getMinizincParam(), to_string(data.value()));
-					cout << "Ejecutamos el minizinc..." << endl;
+					minizinc.updateParameter(val.getMinizincParam(),
+							to_string(data.value()));
+					cout << "Ejecutamos el minizinc... con el dato: "<<val.getMinizincParam() << ":" <<data.value()<< endl;
 					minizinc.Run(true);
 
 				} else {

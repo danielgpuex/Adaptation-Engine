@@ -12,19 +12,6 @@
 //DDS
 #include <iostream>
 #include <fstream>
-////ZMQ
-//
-//#include "zhelpers.hpp"
-//#include "positions.hpp"
-//#include "change_velocity.hpp"
-//#include <thread>
-//#include <mutex>
-//#include "variant_client.hpp"
-//#include "query_client.hpp"
-//#include <abort_current_skill.hpp>
-////ZMQ
-
-#include <iostream>
 #include <string>
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -46,12 +33,12 @@ typedef struct Input {
 };
 
 //Execution args?
-const string mzn_path_ =
-		"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.mzn";
-const string dzn_path_ =
-		"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.dzn";
-const string json_path_ =
-		"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.inputs";
+string mzn_path_;
+//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.mzn";
+string dzn_path_;
+//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.dzn";
+string json_path_;
+//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.inputs";
 //std::vector<Minizinc::DataPair> buffer;
 
 std::map<string, vector<string>> variantsListeners;
@@ -194,7 +181,7 @@ void initListeners(Minizinc minizinc) {
 	vector<TopicVar> enums;
 	TopicVar vp;
 	for (int i = 0; i < inputs.size(); ++i) {
-		if (inputs[i].type == "Property") {
+		if (inputs[i].type == "Property" ||inputs[i].type == "Context") {
 			vp = TopicVar(inputs[i].name, "-1", inputs[i].id);
 			props.push_back(vp);
 		}
@@ -243,33 +230,13 @@ void initListeners(Minizinc minizinc) {
 
 }
 
-/*void loadMinizincParameters() {
- vector<string> params;
- miron::Minizinc::DataPair dp;
- if (variantsListeners.count("boolean") > 0) { //One if for each DDS Listener
- params = variantsListeners["boolean"];
- for (int i = 0; i < params.size(); ++i) {
- dp.id = params[i];
- dp.value = "false";
- minizincParameters.push_back(dp);
- }
- }
- if (variantsListeners.count("VariationPoint") > 0) { //One if for each DDS Listener
- params = variantsListeners["VariationPoint"];
- for (int i = 0; i < params.size(); ++i) {
- dp.id = params[i];
- dp.value = "0";
- minizincParameters.push_back(dp);
- }
- }
- }*/
 void loadMinizinc() {
 	//vector<string> vars;
 	Minizinc::DataPair dp;
 
 	for (int i = 0; i < inputs.size(); ++i) {
 		if (inputs[i].type == "VariationPoint"
-				|| inputs[i].type == "Property") { //For vp1, vp2 ... (name into inputs file) and execution parameters
+				|| inputs[i].type == "Property" || inputs[i].type == "Context") { //For vp1, vp2 ... (name into inputs file) and execution parameters
 				//varpoints.push_back(inputs[i].name);
 			dp.id = inputs[i].id;
 			dp.value = "0";
@@ -289,11 +256,26 @@ void loadMinizinc() {
 		}
 
 	}
+	cout << "Estos son los parametros que le pasamos al minizinc"<<endl;
+	for (int i = 0; i< minizincParameters.size(); ++i) {
+		cout << minizincParameters[i].id << ":" << minizincParameters[i].value << endl;
+	}
 	Minizinc minizinc(mzn_path_, dzn_path_, minizincParameters, varpoints);
 	initListeners(minizinc);
 
 }
 int main(int argc, char *argv[]) {
+	// Check the number of parameters
+	if (argc < 3) {
+		// Tell the user how to run the program
+		std::cerr << "Use 3 arguments" << std::endl;
+		return 1;
+	}
+	std::cout << "Args: " << argv[1] << " - " << argv[2] << " - " << argv[3]
+			<< std::endl;
+	mzn_path_ = argv[1];
+	dzn_path_ = argv[2];
+	json_path_ = argv[3];
 	loadFromJSONInputs();
 	loadMinizinc();
 

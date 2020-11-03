@@ -6,6 +6,8 @@
 #include <string>
 #include <typeinfo>
 #include <change_velocity.hpp>
+#include "variant_client.hpp"
+#include "query_client.hpp"
 
 using namespace std;
 using namespace zmqserver;
@@ -15,7 +17,7 @@ Minizinc::Minizinc() {
 	mzn_path_ = "";
 	dzn_path_ = "";
 }
-Minizinc::Minizinc(const std::string mzn_path, const std::string dzn_path,
+Minizinc::Minizinc(std::string mzn_path,std::string dzn_path,
 		std::vector<DataPair> parameters, std::vector<DataPair> varPoints) {
 	solutions = new Solution();
 	solutions->msg = "";
@@ -115,9 +117,10 @@ void Minizinc::checkSolutions(vector<DataPair> newSolutions) {
 				if (solutions->output[i].value != newSolutions[j].value) {
 					solutions->output[i].value = newSolutions[j].value;
 
-					if (solutions->output[i].id == "vp3") {	//Check type of VariantPoint
+					if (solutions->output[i].id == "vp2") {	//Check type of VariantPoint
 						cout << "Change variant and send through ZMQ" << endl;
 						variant_client_->sendVariant(newSolutions[j].value);
+
 					} else {
 						cout << "Change Parameter " << solutions->output[i].id
 								<< endl;
@@ -196,9 +199,13 @@ int Minizinc::Run(bool display_msgs) {
 }
 
 void Minizinc::updateParameter(std::string param, std::string value) {
-	for (int i = 0; i < buffer.size(); ++i) {
-		if (buffer[i].id == param) {
-			buffer[i].value = value;
+	cout << endl;
+	cout << "Actualizacion de parametro" << endl;
+	for (int i = 0; i < inputs.size(); ++i) {
+		cout << "Param: " << inputs[i].id <<":"<< inputs[i].value << endl;
+		if (inputs[i].id == param) {
+			inputs[i].value = value;
+			cout << "Actualizamos el valor de "<< param << " a " << value << endl;
 		}
 	}
 }

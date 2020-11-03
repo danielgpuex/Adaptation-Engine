@@ -45,7 +45,7 @@ protected:
 public:
 	Minizinc();
 
-	Minizinc(const std::string mzn_path, const std::string dzn_path, std::vector<DataPair> parameters, std::vector<DataPair> varPoints);
+	Minizinc(std::string mzn_path,std::string dzn_path, std::vector<DataPair> parameters, std::vector<DataPair> varPoints);
     
     /**
      * @brief Destroy the Reasoner object

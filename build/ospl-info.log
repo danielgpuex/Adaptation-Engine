@@ -8994,3 +8994,1272 @@ Node        : miron-NUC10i5FNK
 Process     : AdaptationEngine_engine <15496>
 Thread      : signalHandler 7f1620a1d700
 Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1603970117.293114389/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:16+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1815119002 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : spliced 7f0aa8a7e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604394496.752422945/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:16+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : spliced 7f0aa8a7e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604394496.752949109/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:16+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : spliced 7f0aa8a7e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604394496.753215813/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:16+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : ddsi2 7f0aa21c8700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604394496.765045779/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:17+0100
+Description : The durability service can be identified by ID: 1815119002
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : durability 7f0aa257d700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604394497.166421490/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:08:24+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : conflictResolver 7f0aa1e53700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604394504.340380235/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:13:43+0100
+Description : Missed heartbeat for node 2029633720. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : OSPL Garbage Collector 7f0aa2e1c700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604394823.121040511/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:02+0100
+Description : Termination request (signal 2) received from PID 6202 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <6202>
+Thread      : signalHandler 7f0aa34af700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604396522.225320089/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:15+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 156697895 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : spliced 7f372bc02700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604396535.050292252/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:15+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : spliced 7f372bc02700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604396535.050496729/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:15+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : spliced 7f372bc02700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604396535.050732966/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:15+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : ddsi2 7f3725b5e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604396535.055335467/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:15+0100
+Description : The durability service can be identified by ID: 156697895
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : durability 7f3725f02700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604396535.358739981/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:23+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : conflictResolver 7f37257d8700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604396543.040218089/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:38+0100
+Description : Termination request (signal 2) received from PID 7696 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7696>
+Thread      : signalHandler 7f3726e34700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604396558.143579762/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:52+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 2117915390 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : spliced 7fc2eb6a1700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604396572.372491895/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:52+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : spliced 7fc2eb6a1700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604396572.372719930/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:52+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : spliced 7fc2eb6a1700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604396572.373041376/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:52+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : ddsi2 7fc2e4dfc700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604396572.377644831/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:52+0100
+Description : The durability service can be identified by ID: 2117915390
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : durability 7fc2e51a0700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604396572.681290955/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:42:54+0100
+Description : Termination request (signal 2) received from PID 7902 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <7902>
+Thread      : signalHandler 7fc2e60d2700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604396574.791582248/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:25+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 445840754 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : spliced 7f486ba51700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604397025.147058363/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:25+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : spliced 7f486ba51700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604397025.147395352/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:25+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : spliced 7f486ba51700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397025.147756651/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:25+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : ddsi2 7f48659ad700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397025.153992702/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:25+0100
+Description : The durability service can be identified by ID: 445840754
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : durability 7f4865d51700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604397025.457271786/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:50:33+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : conflictResolver 7f4865627700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397033.137008567/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:54:58+0100
+Description : Termination request (signal 2) received from PID 8282 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8282>
+Thread      : signalHandler 7f4866c83700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604397298.235283886/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:07+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 499057461 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : spliced 7f6e17ff0700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604397307.998931497/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:07+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : spliced 7f6e17ff0700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604397307.999103913/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:07+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : spliced 7f6e17ff0700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397307.999323855/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:08+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : ddsi2 7f6e0d737700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397308.004146390/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:08+0100
+Description : The durability service can be identified by ID: 499057461
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : durability 7f6e0dadb700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604397308.207536991/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:15+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : conflictResolver 7f6e0d3c2700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397315.790068418/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:55:44+0100
+Description : Termination request (signal 2) received from PID 8534 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8534>
+Thread      : signalHandler 7f6e0e7fc700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604397344.851623099/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:05+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 433100870 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : spliced 7ff32d653700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604397365.763594504/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:05+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : spliced 7ff32d653700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604397365.763771634/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:05+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : spliced 7ff32d653700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397365.764026849/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:05+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : ddsi2 7ff31adaa700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397365.769028921/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:06+0100
+Description : The durability service can be identified by ID: 433100870
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : durability 7ff31b14e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604397366.474107613/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:14+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : conflictResolver 7ff31aa24700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397374.156317199/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T10:56:15+0100
+Description : Termination request (signal 2) received from PID 8743 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <8743>
+Thread      : signalHandler 7ff31bfff700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604397375.466136049/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:15+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 687530277 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : spliced 7f4dc7823700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604397915.045020382/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:15+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : spliced 7f4dc7823700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604397915.045234075/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:15+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : spliced 7f4dc7823700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397915.050208616/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:15+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : ddsi2 7f4dc0f7e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397915.055555148/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:15+0100
+Description : The durability service can be identified by ID: 687530277
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : durability 7f4dc1322700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604397915.359444915/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:05:23+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : conflictResolver 7f4dc0bf8700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604397923.036981914/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:45+0100
+Description : Termination request (signal 2) received from PID 9073 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9073>
+Thread      : signalHandler 7f4dc2254700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604398005.490382114/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:47+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 807319706 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9273>
+Thread      : spliced 7f3d72421700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604398007.581574615/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:47+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9273>
+Thread      : spliced 7f3d72421700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604398007.581795601/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:47+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9273>
+Thread      : spliced 7f3d72421700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604398007.586826041/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:47+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9273>
+Thread      : ddsi2 7f3d37b0c700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604398007.591876409/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:06:47+0100
+Description : The durability service can be identified by ID: 807319706
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9273>
+Thread      : durability 7f3d6c170700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604398007.894832877/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:20:56+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 970507800 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : spliced 7f5e1d1b2700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604398856.044570743/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:20:56+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : spliced 7f5e1d1b2700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604398856.044807085/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:20:56+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : spliced 7f5e1d1b2700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604398856.045065709/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:20:56+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : ddsi2 7f5e128bc700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604398856.050294974/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:20:56+0100
+Description : The durability service can be identified by ID: 970507800
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : durability 7f5e12c60700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604398856.654191421/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:21:04+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : conflictResolver 7f5e1257a700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604398864.236380124/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:30:37+0100
+Description : Termination request (signal 2) received from PID 9594 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9594>
+Thread      : signalHandler 7f5e137fe700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604399437.124880909/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:03+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 982756479 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : spliced 7f02b6c09700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604399463.579238240/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:03+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : spliced 7f02b6c09700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604399463.579439741/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:03+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : spliced 7f02b6c09700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399463.579673114/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:03+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : ddsi2 7f02b0364700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399463.584270532/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:04+0100
+Description : The durability service can be identified by ID: 982756479
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : durability 7f02b0708700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604399464.288728104/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:11+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : conflictResolver 7f022bfdd700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399471.969860412/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:31:45+0100
+Description : Missed heartbeat for node 1318064848. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : OSPL Garbage Collector 7f02b0fa7700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604399505.326509512/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:12+0100
+Description : Termination request (signal 2) received from PID 9881 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <9881>
+Thread      : signalHandler 7f02b163a700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604399652.201816942/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:21+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 318919112 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : spliced 7ffab28be700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604399661.227792545/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:21+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : spliced 7ffab28be700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604399661.228025018/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:21+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : spliced 7ffab28be700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399661.228306330/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:21+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : ddsi2 7ffaac81a700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399661.233663189/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:21+0100
+Description : The durability service can be identified by ID: 318919112
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : durability 7ffaacbbe700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604399661.536939966/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:29+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : conflictResolver 7ffaac494700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399669.219754483/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:34:55+0100
+Description : Missed heartbeat for node 1360718509. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : OSPL Garbage Collector 7ffaad45d700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604399695.557550489/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:21+0100
+Description : Termination request (signal 2) received from PID 10387 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10387>
+Thread      : signalHandler 7ffaadaf0700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604399901.044536578/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:32+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 533729599 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : spliced 7fbee81aa700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604399912.771275286/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:32+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : spliced 7fbee81aa700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604399912.771475352/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:32+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : spliced 7fbee81aa700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399912.771707087/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:32+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : ddsi2 7fbee1905700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399912.776526651/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:33+0100
+Description : The durability service can be identified by ID: 533729599
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : durability 7fbee1ca9700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604399913.781241496/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:38:41+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : conflictResolver 7fbee157f700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604399921.363603246/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:30+0100
+Description : Termination request (signal 2) received from PID 10790 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <10790>
+Thread      : signalHandler 7fbee2bdb700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604400750.692264563/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:39+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 217877630 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : spliced 7f1421065700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604400759.889303140/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:39+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : spliced 7f1421065700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604400759.889558286/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:39+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : spliced 7f1421065700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604400759.889821874/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:39+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : ddsi2 7f14167ba700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604400759.894827409/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:40+0100
+Description : The durability service can be identified by ID: 217877630
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : durability 7f1416b5e700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604400760.699127788/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T11:52:48+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : conflictResolver 7f1416434700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604400768.281358389/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:00:56+0100
+Description : Termination request (signal 2) received from PID 11149 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11149>
+Thread      : signalHandler 7f14177fe700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604401256.658657143/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:04+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 362515571 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : spliced 7fe90a994700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604401264.503651657/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:04+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : spliced 7fe90a994700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604401264.503832435/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:04+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : spliced 7fe90a994700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401264.504054873/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:04+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : ddsi2 7fe8dffff700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401264.508956383/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:05+0100
+Description : The durability service can be identified by ID: 362515571
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : durability 7fe904493700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604401265.413275874/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:13+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : conflictResolver 7fe8dfd64700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401273.093549523/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:01:44+0100
+Description : Missed heartbeat for node 796539871. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : OSPL Garbage Collector 7fe904d32700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604401304.933242930/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:02:51+0100
+Description : Termination request (signal 2) received from PID 11446 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11446>
+Thread      : signalHandler 7fe9053c5700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604401371.116127981/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:02:59+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1493479205 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : spliced 7fbe14ab3700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604401379.934727420/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:02:59+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : spliced 7fbe14ab3700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604401379.934949388/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:02:59+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : spliced 7fbe14ab3700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401379.935158709/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:02:59+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : ddsi2 7fbe0a1a9700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401379.940402064/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:03:00+0100
+Description : The durability service can be identified by ID: 1493479205
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : durability 7fbe0a54d700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604401380.744744957/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:03:08+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : conflictResolver 7fbe09e78700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604401388.326241987/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:03:31+0100
+Description : Missed heartbeat for node 1156267074. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : OSPL Garbage Collector 7fbe0adec700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604401411.470811914/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:04:42+0100
+Description : Missed heartbeat for node 1410628001. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : OSPL Garbage Collector 7fbe0adec700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604401482.647672163/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:04:48+0100
+Description : Missed heartbeat for node 2120710238. (DCPSPublication is complete)
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : OSPL Garbage Collector 7fbe0adec700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_spliced/v_spliced.c/2062/769/1604401488.972120380/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:19:52+0100
+Description : Termination request (signal 2) received from PID 11785 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <11785>
+Thread      : signalHandler 7fbe104e6700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604402392.203238094/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:12+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 138343450 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : spliced 7f642538c700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604402652.627503310/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:12+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : spliced 7f642538c700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604402652.627724460/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:12+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : spliced 7f642538c700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604402652.627964261/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:12+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : ddsi2 7f641aaac700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604402652.632701347/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:12+0100
+Description : The durability service can be identified by ID: 138343450
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : durability 7f641ae50700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604402652.936177565/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:24:20+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : conflictResolver 7f641a759700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604402660.619161507/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T12:54:15+0100
+Description : Termination request (signal 2) received from PID 12832 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <12832>
+Thread      : signalHandler 7f64205be700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604404455.710255056/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:41+0100
+Description : ---------------------------------------------------------------
+              -- The service is using the following configuration settings --
+              ---------------------------------------------------------------
+              Domain (id)          : ospl_sp_ddsi (0)
+              Storage              : 0 Kbytes
+              Storage threshold    : 1024 Kbytes
+              Storage address      : Not available
+              Locking              : default
+              Memory mode          : Heap memory
+              Builtin topics       : true
+              Priority inheritance : false
+              SystemId             : 1148074307 from [1,2147483647]
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : spliced 7f95c9408700
+Internals   : 6.9.190403OSS/bb590263/bb590263/The OpenSplice domain service/u_domain.c/785/0/1604404961.922246368/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:41+0100
+Description : Service cmsoap disabled
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : spliced 7f95c9408700
+Internals   : 6.9.190403OSS/bb590263/bb590263/OpenSplice domain service/sr_componentInfo.c/446/0/1604404961.922588825/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:41+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'splicedaemon' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : spliced 7f95c9408700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604404961.922928182/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:41+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'ddsi2' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : ddsi2 7f95beb3a700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604404961.928174714/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:42+0100
+Description : The durability service can be identified by ID: 1148074307
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : durability 7f95beede700
+Internals   : 6.9.190403OSS/bb590263/bb590263/DurabilityService/d_durability.c/554/0/1604404962.432306867/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T13:02:50+0100
+Description : ++++++++++++++++++++++++++++++++++++++++++++++++
+              ++ The service 'durability' is now operational. 
+              ++++++++++++++++++++++++++++++++++++++++++++++++
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : conflictResolver 7f95be7d6700
+Internals   : 6.9.190403OSS/bb590263/bb590263/v_serviceChangeState/v_service.c/266/0/1604404970.113283096/0
+========================================================================================
+Report      : INFO
+Date        : 2020-11-03T14:04:07+0100
+Description : Termination request (signal 2) received from PID 13928 (self), UID 1000
+Node        : miron-NUC10i5FNK
+Process     : AdaptationEngine_engine <13928>
+Thread      : signalHandler 7f95c463a700
+Internals   : 6.9.190403OSS/bb590263/bb590263/signalHandlerThread/os_signalHandler.c/632/0/1604408647.731013184/0
