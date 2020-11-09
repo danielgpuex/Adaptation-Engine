@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/queries/abort_current_skill.hpp
+json.hpp
+../include/queries/json.hpp
+query.hpp
+../include/queries/query.hpp
+
 ../include/queries/change_parameter.hpp
 json.hpp
 ../include/queries/json.hpp
@@ -17,6 +23,10 @@ json.hpp
 ../include/queries/json.hpp
 change_parameter.hpp
 ../include/queries/change_parameter.hpp
+../model/SmartsoftInf.h
+../include/model/SmartsoftInf.h
+../model/SmartsoftInf.cc
+../include/model/SmartsoftInf.cc
 
 ../include/queries/query.hpp
 json.hpp
@@ -600,6 +610,38 @@ sys/time.h
 unistd.h
 -
 
+../model/Input.cc
+Input.h
+../model/Input.h
+iostream
+-
+
+../model/Input.h
+string
+-
+
+../model/Output.cc
+Output.h
+../model/Output.h
+iostream
+-
+
+../model/Output.h
+string
+-
+SmartsoftInf.h
+-
+
+../model/SmartsoftInf.cc
+SmartsoftInf.h
+../model/SmartsoftInf.h
+iostream
+-
+
+../model/SmartsoftInf.h
+string
+-
+
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Adaptation-Engine.cpp
 adaptation/minizinc.cc
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/minizinc.cc
@@ -633,6 +675,14 @@ TopicVar.h
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/TopicVar.h
 TopicVar.cc
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/TopicVar.cc
+Input.h
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Input.h
+Input.cc
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Input.cc
+Output.h
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Output.h
+Output.cc
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/Output.cc
 map
 -
 iterator
@@ -655,6 +705,12 @@ typeinfo
 -
 change_velocity.hpp
 -
+variant_client.hpp
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/variant_client.hpp
+query_client.hpp
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/query_client.hpp
+abort_current_skill.hpp
+/home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/abort_current_skill.hpp
 
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/adaptation/minizinc.hpp
 string
@@ -666,6 +722,8 @@ change_velocity.hpp
 query_client.hpp
 -
 variant_client.hpp
+-
+SmartsoftInf.h
 -
 
 /home/miron/MIRON-Project/engine-workspace/Adaptation-Engine/listener/listeners_impl.cpp

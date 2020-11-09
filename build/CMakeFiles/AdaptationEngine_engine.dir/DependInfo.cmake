@@ -13,6 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../adaptation"
   "../listener"
+  "../model"
   "../include/3rdparty"
   "../include/queries"
   "../include/client"
