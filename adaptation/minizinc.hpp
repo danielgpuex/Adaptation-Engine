@@ -3,6 +3,8 @@
 #include <change_velocity.hpp>
 #include <query_client.hpp>
 #include <variant_client.hpp>
+#include <SmartsoftInf.h>
+
 #ifndef MINZINC_H
 #define MINZINC_H
 
@@ -15,6 +17,8 @@ typedef struct DataPair
 	std::string id;
 	std::string value;
 	std::string type;
+	SmartsoftInf smartsoftinfo;
+	
 };
 
 typedef struct Solution
@@ -32,7 +36,6 @@ private:
 
 	std::shared_ptr<QueryClient> query_client_;
 	std::shared_ptr<VariantClient> variant_client_;
-	//std::string json_path_;
 protected:
 
     /**
@@ -69,12 +72,44 @@ public:
      */
 	int Run(bool display_msgs);
 
+    /**
+     * Update value of parameter in the buffer of minizinc
+     * 
+     * @param param Name of parameter
+     * @param value New value of parameter
+     * 
+     */
 	void updateParameter(std::string param,std::string value);
 
+    /**
+     * Compare old and new solutions
+     * 
+     * @param newSolutions New solutions vector
+     * 
+     */
 	void checkSolutions(std::vector<DataPair> newSolutions);
 
-
+    /**
+     * Abort current skill
+     * 
+     * @param value Time you will be standing (milisec)
+     * 
+     */
+	void abortCurrentSkill(double value);
+    /**
+     * Clears the spaces in a string
+     * 
+     * @param str string to be cleared 
+     * @return cleared string
+     */
 	std::string removeSpaces(std::string str);
+
+    /**
+     * Checks if a file is empty
+     * 
+     * @param pFile file
+     * @return bool 
+     */	
 	bool is_empty(std::ifstream &pFile);
 
 };

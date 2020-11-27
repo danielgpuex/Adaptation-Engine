@@ -1,5 +1,5 @@
-#include "TopicVar.h" // header in local directory
-#include <iostream> // header in standard library
+#include "TopicVar.h" 
+#include <iostream> 
 using namespace std;
 
 TopicVar::TopicVar()

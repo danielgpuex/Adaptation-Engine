@@ -8,6 +8,7 @@
 #include <change_velocity.hpp>
 #include "variant_client.hpp"
 #include "query_client.hpp"
+#include "abort_current_skill.hpp"
 
 using namespace std;
 using namespace zmqserver;
@@ -30,10 +31,7 @@ Minizinc::Minizinc(std::string mzn_path,std::string dzn_path,
 	DataPair dp;
 	//Create the buffer
 	for (int i = 0; i < varPoints.size(); ++i) {
-		dp.id = varPoints[i].id;
-		dp.value = "-1";
-		dp.type = varPoints[i].type;
-		buffer.push_back(dp);
+		buffer.push_back(varPoints[i]);
 	}
 	//solutions->output=buffer;
 	for (int i = 0; i < buffer.size(); ++i) {
@@ -85,9 +83,6 @@ void Minizinc::ParseSolution() {
 	DataPair varpoint;
 	vector<DataPair> newSolutions;
 
-	//Removes the spaces in the string
-	//msg.erase(remove_if(msg.begin(), msg.end(), isspace), msg.end());
-
 	// Tokinizes the string
 	while ((pos1 = msg.find(assignment_delimiter)) != std::string::npos) {
 		assignment_token = msg.substr(0, pos1);
@@ -98,35 +93,34 @@ void Minizinc::ParseSolution() {
 					assignment_token.length());
 			//Check previous value
 			newSolutions.push_back(varpoint);
-
-			cout << varpoint.id << "=" << varpoint.value << endl;
 		}
 		msg.erase(0, pos1 + assignment_delimiter.length());
 	}
 
 	checkSolutions(newSolutions);
 }
+void Minizinc::abortCurrentSkill(double value)
+{
+	ApproachDist app_dist(100000);
+	AbortCurrentSkill abort_msg(query_client_->getID(), app_dist);
+	query_client_->setMsg(std::move(abort_msg.dump()));
+	query_client_->send();
+}
 void Minizinc::checkSolutions(vector<DataPair> newSolutions) {
 
 	for (int i = 0; i < solutions->output.size(); ++i) {
 		for (int j = 0; j < newSolutions.size(); ++j) {
 			if (solutions->output[i].id == newSolutions[j].id) {
-				cout << "Old Value: " << solutions->output[i].value
-						<< "New Value: " << newSolutions[j].value << endl;
-
 				if (solutions->output[i].value != newSolutions[j].value) {
 					solutions->output[i].value = newSolutions[j].value;
-
-					if (solutions->output[i].id == "vp2") {	//Check type of VariantPoint
+					if (solutions->output[i].type == "BehaviorTreeEnumType") {	//Check type of VariantPoint
 						cout << "Change variant and send through ZMQ" << endl;
 						variant_client_->sendVariant(newSolutions[j].value);
-
+						abortCurrentSkill(100000);
 					} else {
-						cout << "Change Parameter " << solutions->output[i].id
-								<< endl;
-						Velocity vel(stoi(solutions->output[i].value),
+						Parameter vel(stoi(solutions->output[i].value),
 								stoi(solutions->output[i].value));
-						ChangeVelocity vel_msg(query_client_->getID(), vel);
+						ChangeP vel_msg(query_client_->getID(), solutions->output[i].smartsoftinfo, vel);
 						query_client_->setMsg(std::move(vel_msg.dump()));
 						query_client_->send();
 					}
@@ -158,7 +152,7 @@ int Minizinc::Run(bool display_msgs) {
 		context_str.append(inputs[i].value.c_str());
 		context_str.append(";");
 	}
-	cout << "Context str" << context_str << endl;
+	cout << "Context str " << context_str << endl;
 
 	// Running minizinc command to execute the optimization
 	if (result == 0) {
@@ -199,6 +193,7 @@ int Minizinc::Run(bool display_msgs) {
 }
 
 void Minizinc::updateParameter(std::string param, std::string value) {
+	
 	cout << endl;
 	cout << "Actualizacion de parametro" << endl;
 	for (int i = 0; i < inputs.size(); ++i) {

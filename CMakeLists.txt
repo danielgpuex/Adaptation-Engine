@@ -12,6 +12,7 @@ include_directories(${Boost_INCLUDE_DIR} include)
 include_directories(
   adaptation
   listener
+  model
   include
   include/3rdparty
   include/queries

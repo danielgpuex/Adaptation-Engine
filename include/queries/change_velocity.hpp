@@ -22,35 +22,37 @@
 
 #include "json.hpp"
 #include "change_parameter.hpp"
+#include "../model/SmartsoftInf.h"
+#include "../model/SmartsoftInf.cc"
 
 namespace zmqserver
 {
 
-struct Velocity
+struct Parameter
 {
   std::unordered_map<std::string, double> values;
 
-  Velocity(double vmin, double vmax) {
+  Parameter(double vmin, double vmax) {
     values.insert(std::make_pair("1", vmin));
     values.insert(std::make_pair("2", vmax));
   }
-  Velocity() {
+  Parameter() {
     values.insert(std::make_pair("1", 0.0));
     values.insert(std::make_pair("2", 0.0));
   }
 };
 
-class ChangeVelocity : public ChangeParameter<Velocity>
+class ChangeP: public ChangeParameter<Parameter>
 {
 public:
-  ChangeVelocity(int id, Velocity values) : ChangeParameter<Velocity>(id, values)
+  ChangeP(int id, SmartsoftInf smartsoftInfo, Parameter values) : ChangeParameter<Parameter>(id, values)
   {
-    _query["ParameterSetRepository"] = "CommNavigationObjects";
-    _query["ParameterSet"] = "CdlParameter";
-    _query["Component"] = "SmartCdlServer";
-    _query["Parameter"] = "transvel";
+    _query["ParameterSetRepository"] = smartsoftInfo.getParameterSetRepository();
+    _query["ParameterSet"] = smartsoftInfo.getParameterSet();
+    _query["Component"] = smartsoftInfo.getComponent();
+    _query["Parameter"] = smartsoftInfo.getParameter();
   }
-  ~ChangeVelocity(){};
+  ~ChangeP(){};
 
   std::string dump() override
   {
