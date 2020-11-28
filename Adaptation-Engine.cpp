@@ -25,27 +25,29 @@
 
 #include <map>
 #include <iterator>
+#include <stdlib.h>
 using namespace std;
 using namespace Roqme;
 using namespace rapidjson;
 
 //Execution args?
 string mzn_path_;
-//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.mzn";
 string dzn_path_;
-//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.dzn";
 string json_path_;
-//"/home/miron/MIRON-Project/ModelosDeEjemplo/Generated/test2.miron.inputs";
-//std::vector<Minizinc::DataPair> buffer;
+
 
 std::map<string, vector<string>> variantsListeners;
 std::vector<Input> inputs;
 std::vector<Output> outputs;
-
 std::vector<Minizinc::DataPair> minizincParameters;
-
 std::vector<Minizinc::DataPair> varpoints;
-
+RoqmeEstimateReader estimateReader;
+RoqmeIntReader intReader;
+RoqmeUIntReader uintReader;
+RoqmeDoubleReader doubleReader;
+RoqmeBoolReader boolReader;
+RoqmeEnumReader enumReader;
+RoqmeEventReader eventReader;
 string readInputFile() {
 	string jsonFile = "";
 	string line;
@@ -127,8 +129,7 @@ void initListeners(Minizinc minizinc) {
 
 	}
 	if (props.size() > 0) {
-		RoqmeEstimateReader estimateReader(
-				new EstimateListener(props, minizinc));
+		RoqmeEstimateReader estimateReader(new EstimateListener(props, minizinc));
 		RoqmeIntReader intReader(new IntContextListener(props, minizinc));
 		RoqmeUIntReader uintReader(new UIntContextListener(props, minizinc));
 		RoqmeDoubleReader doubleReader(
@@ -136,10 +137,12 @@ void initListeners(Minizinc minizinc) {
 		RoqmeBoolReader boolReader(new BoolContextListener(props, minizinc));
 		RoqmeEnumReader enumReader(new EnumContextListener(props, minizinc));
 		RoqmeEventReader eventReader(new EventContextListener(props, minizinc));
-		RoqmeObservationReader observationReader(new ObservationListener);
 
-		cout << "Press any button to finish..." << endl;
-		std::cin.get();
+		cout << "Press any key to finish..." << endl;
+		string out;
+		cin >> out;
+		cout << "Finishing..." << endl;
+
 		estimateReader.close();
 		intReader.close();
 		uintReader.close();
@@ -147,7 +150,8 @@ void initListeners(Minizinc minizinc) {
 		boolReader.close();
 		enumReader.close();
 		eventReader.close();
-		observationReader.close();
+		exit(1);
+
 	}
 
 }
